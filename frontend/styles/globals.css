@@ -1,0 +1,535 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  appearance: none;
+}
+
+body {
+  @apply bg-local bg-[#f2f2f2];
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* START: Navbar styles */
+.ico-navbar {
+  @apply hover:text-redColor transition-all cursor-pointer;
+}
+/* END: Navbar styles */
+
+/* START: Home styles */
+.calendarBox-home {
+  /* @apply absolute lg:bg-white/70 bg-white backdrop-blur-[1px] sm:h-[550px] h-[400px] lg:w-[600px] md:w-[580px] sm:w-[560px] w-[360px] max-[425px]:w-[320px] max-[380px]:w-[300px] sm:rounded-[90px] rounded-[40px]  flex max-[1080px]:flex-wrap md:left-5 sm:-left-10 max-[546px]:-left-14 items-center justify-center sm:-top-24 -top-24; */
+  @apply absolute lg:bg-white/70 bg-white backdrop-blur-[1px]  sm:h-[550px] h-[400px] lg:w-[1000px] md:w-[580px] sm:w-[560px] w-[360px] max-[425px]:w-[320px] max-[380px]:w-[300px] sm:rounded-[90px] rounded-[40px]  flex max-[1080px]:flex-wrap min-[1124px]:-left-8 min-[1024px]:-left-20 -left-14  items-center justify-center sm:-top-24 -top-24;
+}
+
+.shape-home {
+  @apply relative md:h-[540px] md:w-[540px] sm:h-[440px] h-[340px] sm:w-[440px] w-[340px] -z-20 lg:top-[200px] lg:left-[520px] md:top-[350px] md:left-[40px] sm:top-[350px] sm:left-[20px] top-[160px] left-[50px];
+}
+.araba-home {
+  @apply absolute lg:top-72 md:top-[428px] md:left-[300px] lg:left-[760px] sm:left-[240px] sm:top-[430px] left-[220px] top-[220px] lg:z-40 sm:-z-10;
+}
+.araba-home-motion {
+  @apply relative xl:h-[400px] xl:w-[861px] lg:h-[360px] lg:w-[781px] md:h-[380px] md:w-[761px] sm:h-[300px] sm:w-[661px] h-[220px] w-[481px];
+}
+/* END: Home styles */
+
+/* START: User styles */
+.profile-Link {
+  @apply py-[10px] w-auto text-darkColor hover:text-redColor transition-all cursor-pointer flex gap-x-3 items-center justify-start md:text-sm text-xs;
+}
+.profile-Text {
+  @apply md:text-sm text-xs font-titleTextType capitalize;
+}
+.profile-Click {
+  @apply border-b border-b-redColor/80 text-redColor;
+}
+.profile-Link-linkedin {
+  @apply py-[10px] w-auto text-darkColor hover:text-[#7BBDFA] transition-all cursor-pointer flex gap-x-3 items-center justify-start md:text-sm text-xs;
+}
+.profile-Text-linkedin {
+  @apply md:text-sm text-xs font-titleTextType capitalize;
+}
+.profile-Click-linkedin {
+  @apply border-b border-b-[#7BBDFA]/80 text-[#7BBDFA];
+}
+/* END: User styles */
+
+/* START: DateRange styles */
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+.custom-date-range-picker {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  border-radius: 40px;
+}
+.rdrDayToday {
+  background: #eb5a35;
+}
+/* END: DateRange styles */
+
+/* START: Loading styles */
+.loading-page {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, #434343 0%, black 80%);
+  color: #191654;
+  opacity: 1;
+  animation: fadeOut 1.5s forwards 8.5s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+#loading-svg {
+  height: 200px;
+  width: 200px;
+  stroke: #d62027;
+  fill-opacity: 0;
+  stroke-width: 3px;
+  stroke-dasharray: 4500;
+  animation: draw 8s ease;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+    fill-opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #c23031;
+    fill-opacity: 1;
+  }
+}
+
+.loading-name {
+  font-family: "Audiowide", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  margin-left: 20px;
+  font-weight: bolder;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 2s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* END: Loading styles */
+
+/* uygulama içinde kalıplaşmış buttonun tüm özellikleri burdadır. */
+
+.button {
+  @apply text-white uppercase bg-darkGrayColor cursor-pointer rounded-3xl sm:py-3 p-3 sm:px-8 sm:text-sm text-[10px] font-titleTextType transition-all z-[9999];
+}
+
+.button:hover {
+  animation: button 1.5s infinite;
+}
+
+@keyframes button {
+  0% {
+    box-shadow: 0 0 0 #434343;
+  }
+  50% {
+    box-shadow: 0 0 10px #434343;
+  }
+  100% {
+    box-shadow: 0 0 0 #434343;
+  }
+}
+
+.buttonEdit {
+  @apply text-white uppercase bg-[#b6dc76] cursor-pointer rounded-3xl sm:py-3 p-3 sm:px-8 sm:text-sm text-[10px] font-titleTextType transition-all;
+}
+
+.buttonEdit:hover {
+  animation: buttonEdit 1.5s infinite;
+}
+
+@keyframes buttonEdit {
+  0% {
+    box-shadow: 0 0 0 #b6dc76;
+  }
+  50% {
+    box-shadow: 0 0 10px #b6dc76;
+  }
+  100% {
+    box-shadow: 0 0 0 #b6dc76;
+  }
+}
+.buttonDelete {
+  @apply text-white uppercase bg-[#ada8b6] cursor-pointer rounded-3xl sm:py-3 p-3 sm:px-8 sm:text-sm text-[10px] font-titleTextType transition-all;
+}
+
+.buttonDelete:hover {
+  animation: buttonDelete 1.5s infinite;
+}
+
+@keyframes buttonDelete {
+  0% {
+    box-shadow: 0 0 0 #ada8b6;
+  }
+  50% {
+    box-shadow: 0 0 10px #ada8b6;
+  }
+  100% {
+    box-shadow: 0 0 0 #ada8b6;
+  }
+}
+/* uygulama içinde kalıplaşmış buttonun tüm özellikleri burdadır. */
+
+/* START: animate component styles */
+
+.loader {
+  width: 70px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #c23031 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #c23031);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+input:invalid ~ .error-message {
+  display: block;
+}
+
+.carcardAnimate {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  mix-blend-mode: darken;
+  display: grid;
+  filter: blur(4px) contrast(10) hue-rotate(28deg);
+}
+.carcardAnimate:before,
+.carcardAnimate:after {
+  content: "";
+  grid-area: 1/1;
+  animation: l2 6s infinite linear;
+  /* background: #a90000; */
+  border-radius: 50%;
+}
+.carcardAnimate:after {
+  animation-delay: -0.8s;
+}
+@keyframes l2 {
+  12.5% {
+    border-radius: 37% 63% 70% 30% / 30% 62% 38% 70%;
+  }
+  25% {
+    border-radius: 84% 16% 15% 85% / 55% 79% 21% 45%;
+  }
+  37.5% {
+    border-radius: 73% 27% 74% 26% / 64% 32% 68% 36%;
+  }
+  50% {
+    border-radius: 73% 27% 18% 82% / 52% 32% 68% 48%;
+  }
+  62.5% {
+    border-radius: 33% 67% 18% 82% / 52% 75% 25% 48%;
+  }
+  75% {
+    border-radius: 12% 88% 69% 31% / 10% 66% 34% 90%;
+  }
+  87.5% {
+    border-radius: 50% 50% 70% 30% / 52% 62% 38% 48%;
+  }
+}
+
+.carcardAnimate2 {
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 3px;
+  background: radial-gradient(farthest-side, #c23031 95%, #0000) 50% 0/12px 12px
+      no-repeat,
+    radial-gradient(
+        farthest-side,
+        #0000 calc(100% - 5px),
+        #434343 calc(100% - 4px)
+      )
+      content-box;
+  animation: l6 2s infinite;
+}
+@keyframes l6 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.InputFields {
+  @apply w-full;
+}
+.labelFields {
+  @apply flex-shrink-0 w-36 md:text-sm text-xs font-medium capitalize text-darkColor;
+}
+.labelFieldsPlaceholder {
+  @apply text-xs text-darkGrayColor opacity-50 capitalize;
+}
+
+.InputFields::placeholder {
+  @apply text-xs text-darkGrayColor opacity-50 capitalize;
+}
+
+input[type="file"]::file-selector-button {
+  background: #c23031;
+  color: white;
+  border: 1px solid #c23031;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 4px;
+  transition: 0.5s all;
+}
+input[type="file"] {
+  /* border: 1px solid #c23031; */
+  color: #c23031;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: lowercase;
+  padding: 0.6em;
+}
+input[type="file"]::file-selector-button:hover {
+  background: #434343;
+  border: 1px solid #434343;
+}
+
+.carcardAnimate3 {
+  height: 15px;
+  aspect-ratio: 5;
+  --_g: no-repeat radial-gradient(farthest-side, #c23031 94%, #fff);
+  background: var(--_g), var(--_g), var(--_g), var(--_g);
+  background-size: 20% 100%;
+  animation: l40-1 0.75s infinite alternate, l40-2 1.5s infinite alternate;
+}
+@keyframes l40-1 {
+  0%,
+  10% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  33% {
+    background-position: 0 0, calc(100% / 3) 0, calc(100% / 3) 0,
+      calc(100% / 3) 0;
+  }
+  66% {
+    background-position: 0 0, calc(100% / 3) 0, calc(2 * 100% / 3) 0,
+      calc(2 * 100% / 3) 0;
+  }
+  90%,
+  100% {
+    background-position: 0 0, calc(100% / 3) 0, calc(2 * 100% / 3) 0, 100% 0;
+  }
+}
+@keyframes l40-2 {
+  0%,
+  49.99% {
+    transform: scale(1);
+  }
+  50%,
+  100% {
+    transform: scale(-1);
+  }
+}
+
+.circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+}
+
+.araba-home-motion {
+  transform: translateX(150px);
+  animation: slide-in 7s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(150px);
+  }
+  20% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.reservationCarCard {
+  @apply absolute w-32 h-24 p-5 bg-[rgba(86,86,86,0.4)] backdrop-blur-[16px]  rounded-2xl text-center text-slate-50 shadow-md transition-all;
+  animation: fadeIn 8s forwards;
+}
+@keyframes blinkShadow {
+  0% {
+    box-shadow: 0 0 12px rgba(208, 33, 14, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(208, 33, 14, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 48px rgba(208, 33, 14, 0.2);
+  }
+}
+
+.reservationCarCard1 {
+  @apply top-16 -left-8;
+}
+.reservationCarCard2 {
+  @apply top-44 left-52;
+}
+.reservationCarCard3 {
+  @apply -left-8 bottom-8;
+}
+.reservationCarMap {
+  top: 18px;
+  margin: auto;
+  z-index: -10;
+  transform: rotate(-10deg);
+}
+.scroll::-webkit-scrollbar {
+  width: 1px;
+  height: 5px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.car-type-picker {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.toggle-container {
+  width: 100%;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.slider {
+  width: 100%;
+  height: 20px;
+  position: relative;
+  margin-right: 10px;
+  background-color: #ccc;
+  border-radius: 100px;
+  transition: background-color 0.2s ease;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.toggle.active .slider {
+  background-color: #c23031;
+}
+
+.toggle.active .slider:before {
+  transform: translateX(50px);
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  border-radius: 200px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+  transition: background-color 0.8s ease;
+}
+
+.toggle.active::after {
+  background-color: #c23031;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.marquee {
+  display: inline-block;
+  width: calc(100% * 2);
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
